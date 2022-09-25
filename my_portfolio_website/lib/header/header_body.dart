@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:my_portfolio_web/utils/hover_extensions.dart';
+import 'package:my_portfolio_website/utils/hover_extensions.dart';
 
 class HeaderBody extends StatelessWidget {
   final bool isMobile;

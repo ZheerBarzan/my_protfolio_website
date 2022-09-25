@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio_web/header/header_view.dart';
-import 'package:my_portfolio_web/navigation_bar/navigation_bar_view.dart';
+import 'package:my_portfolio_website/header/header_view.dart';
+import 'package:my_portfolio_website/navigation_bar/navigation_bar_view.dart';
 
 void main() {
   runApp(const MyApp());

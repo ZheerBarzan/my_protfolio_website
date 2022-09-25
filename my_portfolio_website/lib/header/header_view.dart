@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:my_portfolio_web/header/header_body.dart';
+import 'package:my_portfolio_website/header/header_body.dart';
 
 class PortfolioView extends StatelessWidget {
   const PortfolioView({super.key});
