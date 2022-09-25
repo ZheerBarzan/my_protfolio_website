@@ -12,6 +12,8 @@ class NavigationBarView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       builder: (context, size) {
+        final onPressed = () => print('click');
+        final text = 'About Me';
         return Container(
           height: 100,
           width: 1507,
@@ -19,15 +21,53 @@ class NavigationBarView extends StatelessWidget {
           child: Row(children: [
             FlutterLogo(),
             Spacer(),
-            InkWell(
-              child: Text(
-                'About Me',
-                style: GoogleFonts.montserrat(fontSize: 24),
-              ),
-            )
+            for (var item in kNavigationItems)
+              NavigationBarItem(onPressed: onPressed, text: item.text)
           ]),
         );
       },
+    );
+  }
+}
+
+class NavigationItem {
+  final String text;
+  NavigationItem(this.text);
+}
+
+final kNavigationItems = [
+  NavigationItem('Projects'),
+  NavigationItem('Skills'),
+  NavigationItem('Blog'),
+  NavigationItem('About Me'),
+];
+
+class NavigationBarItem extends StatelessWidget {
+  const NavigationBarItem({
+    Key? key,
+    required this.onPressed,
+    required this.text,
+  }) : super(key: key);
+
+  final void Function() onPressed;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(left: 64),
+      child: InkWell(
+        // might change later
+        onTap: onPressed,
+        mouseCursor: MaterialStateMouseCursor.clickable,
+        hoverColor: Colors.transparent,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        child: Text(
+          text,
+          style: GoogleFonts.montserrat(fontSize: 24),
+        ),
+      ),
     );
   }
 }
