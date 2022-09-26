@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio_website/header/header_view.dart';
 import 'package:my_portfolio_website/navigation_bar/navigation_bar_view.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,6 +40,36 @@ class PortfolioView extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class DrawerView extends StatelessWidget {
+  const DrawerView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveBuilder(
+      builder: (_, size) {
+        if (!size.isMobile) return SizedBox();
+        return Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                child: Text('drawer header'),
+                decoration: BoxDecoration(color: Colors.blue),
+              ),
+              ListTile(
+                title: Text('Item 1'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }

@@ -12,6 +12,22 @@ class NavigationBarView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       builder: (context, size) {
+        if (size.isMobile) {
+          return Container(
+            height: 60,
+            width: double.infinity,
+            child: Row(
+              children: [
+                FlutterLogo(),
+                Spacer(),
+                IconButton(
+                  onPressed: (null),
+                  icon: Icon(Icons.menu),
+                )
+              ],
+            ),
+          );
+        }
         final onPressed = () => print('click');
         final text = 'About Me';
         return Container(
