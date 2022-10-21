@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'ZheerBarzan',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -29,8 +30,9 @@ class PortfolioView extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    print(height);
+
     return Scaffold(
+      endDrawer: DrawerView(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -60,12 +62,13 @@ class DrawerView extends StatelessWidget {
                 child: Text('drawer header'),
                 decoration: BoxDecoration(color: Colors.blue),
               ),
-              ListTile(
-                title: Text('Item 1'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              )
+              for (var item in kNavigationItems)
+                ListTile(
+                  title: Text(item.text),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                )
             ],
           ),
         );

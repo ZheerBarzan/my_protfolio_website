@@ -18,10 +18,13 @@ class NavigationBarView extends StatelessWidget {
             width: double.infinity,
             child: Row(
               children: [
+                SizedBox(
+                  width: 20,
+                ),
                 FlutterLogo(),
                 Spacer(),
                 IconButton(
-                  onPressed: (null),
+                  onPressed: () => Scaffold.of(context).openEndDrawer(),
                   icon: Icon(Icons.menu),
                 )
               ],
@@ -37,8 +40,7 @@ class NavigationBarView extends StatelessWidget {
           child: Row(children: [
             FlutterLogo(),
             Spacer(),
-            for (var item in kNavigationItems)
-              NavigationBarItem(onPressed: onPressed, text: item.text)
+            
           ]),
         );
       },
